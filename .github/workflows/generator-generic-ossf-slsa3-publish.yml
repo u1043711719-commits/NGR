@@ -1,66 +1,174 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Modern Website</title>
 
-# This workflow lets you generate SLSA provenance file for your project.
-# The generation satisfies level 3 for the provenance requirements - see https://slsa.dev/spec/v0.1/requirements
-# The project is an initiative of the OpenSSF (openssf.org) and is developed at
-# https://github.com/slsa-framework/slsa-github-generator.
-# The provenance file can be verified using https://github.com/slsa-framework/slsa-verifier.
-# For more information about SLSA and how it improves the supply-chain, visit slsa.dev.
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-name: SLSA generic generator
-on:
-  workflow_dispatch:
-  release:
-    types: [created]
+    body {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      line-height: 1.6;
+    }
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    outputs:
-      digests: ${{ steps.hash.outputs.digests }}
+    header {
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+    }
 
-    steps:
-      - uses: actions/checkout@v4
+    header h2 {
+      color: #38bdf8;
+    }
 
-      # ========================================================
-      #
-      # Step 1: Build your artifacts.
-      #
-      # ========================================================
-      - name: Build artifacts
-        run: |
-            # These are some amazing artifacts.
-            echo "artifact1" > artifact1
-            echo "artifact2" > artifact2
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      transition: 0.3s;
+    }
 
-      # ========================================================
-      #
-      # Step 2: Add a step to generate the provenance subjects
-      #         as shown below. Update the sha256 sum arguments
-      #         to include all binaries that you generate
-      #         provenance for.
-      #
-      # ========================================================
-      - name: Generate subject for provenance
-        id: hash
-        run: |
-          set -euo pipefail
+    nav a:hover {
+      color: #38bdf8;
+    }
 
-          # List the artifacts the provenance will refer to.
-          files=$(ls artifact*)
-          # Generate the subjects (base64 encoded).
-          echo "hashes=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
+    .hero {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
 
-  provenance:
-    needs: [build]
-    permissions:
-      actions: read   # To read the workflow path.
-      id-token: write # To sign the provenance.
-      contents: write # To add assets to a release.
-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.4.0
-    with:
-      base64-subjects: "${{ needs.build.outputs.digests }}"
-      upload-assets: true # Optional: Upload to a new release
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: #cbd5e1;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #38bdf8;
+      border: none;
+      border-radius: 25px;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #0ea5e9;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .card-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 15px;
+      width: 250px;
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.4);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>MyWebsite</h2>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Welcome to My Modern Website</h1>
+    <p>This is a clean and responsive design that you can host on GitHub Pages and customize easily.</p>
+    <button class="btn">Get Started</button>
+  </div>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We build modern, fast and responsive websites.</p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+
+    <div class="card-container">
+      <div class="card">
+        <h3>Web Design</h3>
+        <p>Modern and responsive website designs.</p>
+      </div>
+
+      <div class="card">
+        <h3>Development</h3>
+        <p>Fast and clean coding solutions.</p>
+      </div>
+
+      <div class="card">
+        <h3>SEO</h3>
+        <p>Improve your website ranking on Google.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: example@gmail.com</p>
+  </section>
+
+  <footer>
+    <p>© 2026 MyWebsite. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
