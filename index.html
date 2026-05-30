@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NGR Academy</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family:Arial;
+      background: radial-gradient(circle at top, #0f172a, #000);
+      color:white;
+      text-align:center;
+    }
+
+    .container{
+      padding-top:80px;
+    }
+
+    .logo{
+      font-size:40px;
+      font-weight:bold;
+      color:#00ff99;
+      letter-spacing:2px;
+      text-shadow:0 0 20px #00ff99;
+    }
+
+    .subtitle{
+      margin-top:10px;
+      font-size:18px;
+      color:#aaa;
+    }
+
+    .tags{
+      margin-top:30px;
+      font-size:16px;
+      color:#ccc;
+    }
+
+    .card{
+      margin:50px auto;
+      width:300px;
+      padding:20px;
+      background:#111;
+      border:1px solid #00ff99;
+      border-radius:12px;
+      box-shadow:0 0 20px rgba(0,255,153,0.2);
+    }
+
+    button{
+      margin-top:20px;
+      padding:12px 25px;
+      font-size:16px;
+      background:linear-gradient(90deg, #00ff99, #00ccff);
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      color:black;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    button:hover{
+      transform:scale(1.05);
+    }
+
+    .glow{
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow{
+      from{ text-shadow:0 0 10px #00ff99; }
+      to{ text-shadow:0 0 25px #00ff99; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="logo glow">🇦🇫 NGR ACADEMY</div>
+
+  <div class="subtitle">
+    Professional Trading Learning Platform
+  </div>
+
+  <div class="tags">
+    Crypto • Forex • TradingView • Binary Options
+  </div>
+
+  <div class="card">
+    <h3>Start Your Journey 🚀</h3>
+    <p>Learn trading step by step like a pro</p>
+
+    <button onclick="enter()">Enter Site</button>
+  </div>
+
+</div>
+
+<script>
+function enter(){
+  const user = localStorage.getItem("user");
+
+  if(user){
+    window.location.href = "dashboard.html";
+  } else {
+    window.location.href = "login.html";
+  }
+}
+</script>
+
+</body>
+</html>
