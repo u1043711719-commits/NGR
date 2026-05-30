@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NGR ACADEMY</title>
+  <style>
+    body{
+      margin:0;
+      font-family:Arial;
+      background: linear-gradient(135deg, black, #0a0a0a);
+      color:white;
+      text-align:center;
+    }
+
+    .header{
+      background: linear-gradient(90deg, green, black, red);
+      padding:25px;
+      font-size:28px;
+      font-weight:bold;
+    }
+
+    .box{
+      margin-top:50px;
+      padding:20px;
+    }
+
+    .title{
+      font-size:40px;
+      color:#00ff99;
+      font-weight:bold;
+    }
+
+    .subtitle{
+      font-size:18px;
+      color:#ccc;
+      margin-top:10px;
+    }
+
+    .cards{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:40px;
+      gap:15px;
+    }
+
+    .card{
+      background:#111;
+      padding:20px;
+      width:220px;
+      border-radius:12px;
+      border:1px solid #00ff99;
+    }
+
+    .card h3{
+      color:#00ff99;
+    }
+
+    button{
+      margin-top:30px;
+      padding:12px 25px;
+      background:green;
+      border:none;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+      border-radius:8px;
+    }
+
+    button:hover{
+      background:red;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="header">
+  🇦🇫 NGR ACADEMY 🇦🇫
+</div>
+
+<div class="box">
+
+  <div class="title">Welcome to NGR Academy</div>
+  <div class="subtitle">
+    Crypto Trading • TradingView Analysis • Forex Trading • Binary Options
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>📊 Crypto Trading</h3>
+      <p>Learn Bitcoin & Crypto markets</p>
+    </div>
+
+    <div class="card">
+      <h3>📈 TradingView</h3>
+      <p>Professional chart analysis</p>
+    </div>
+
+    <div class="card">
+      <h3>💱 Forex</h3>
+      <p>USD, EUR, GBP trading skills</p>
+    </div>
+
+    <div class="card">
+      <h3>⚡ Binary Options</h3>
+      <p>Short term trading basics</p>
+    </div>
+
+  </div>
+
+  <button onclick="go()">Start Learning</button>
+
+</div>
+
+<script>
+function go(){
+  const user = localStorage.getItem('user');
+
+  if(user){
+    window.location.href = "dashboard.html";
+  } else {
+    window.location.href = "login.html";
+  }
+}
+</script>
+
+</body>
+</html>
