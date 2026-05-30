@@ -1,0 +1,66 @@
+<!-- FILE: login.html --><!DOCTYPE html><html lang="ps">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; background:#f4f4f4; display:flex; justify-content:center; align-items:center; height:100vh; }
+        .box { background:white; padding:20px; border-radius:10px; width:300px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
+        input { width:100%; padding:10px; margin:10px 0; }
+        button { width:100%; padding:10px; background:green; color:white; border:none; cursor:pointer; }
+    </style>
+</head>
+<body><div class="box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+</div><script>
+function login() {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+
+    if(user && pass){
+        localStorage.setItem('user', user);
+        window.location.href = 'dashboard.html';
+    } else {
+        alert('Please fill all fields');
+    }
+}
+</script></body>
+</html><!-- FILE: dashboard.html --><!DOCTYPE html><html lang="ps">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body { font-family: Arial; margin:0; padding:0; background:#eef2f3; }
+        .header { background:green; color:white; padding:15px; text-align:center; }
+        .content { padding:20px; }
+        .card { background:white; padding:15px; margin:10px 0; border-radius:10px; }
+        button { padding:10px; background:red; color:white; border:none; cursor:pointer; }
+    </style>
+</head>
+<body><div class="header">
+    <h2>Student Dashboard</h2>
+</div><div class="content">
+    <h3 id="welcome"></h3><div class="card">
+    <p>Welcome to your course dashboard 🎓</p>
+</div>
+
+<button onclick="logout()">Logout</button>
+
+</div><script>
+const user = localStorage.getItem('user');
+if(!user){
+    window.location.href = 'login.html';
+} else {
+    document.getElementById('welcome').innerText = 'Welcome, ' + user;
+}
+
+function logout(){
+    localStorage.removeItem('user');
+    window.location.href = 'login.html';
+}
+</script></body>
+</html>
