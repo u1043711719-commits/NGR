@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NGR Academy</title>
+</head>
+
+<body style="font-family:Arial;text-align:center;padding-top:100px;">
+
+  <h1>🇦🇫 Welcome to NGR Academy</h1>
+  <p>Crypto • Forex • TradingView • Binary Options</p>
+
+  <button onclick="go()" style="padding:10px 20px;font-size:16px;">
+    Enter Site
+  </button>
+
+  <script>
+    function go(){
+      const user = localStorage.getItem('user');
+
+      if(user){
+        window.location.href = "dashboard.html";
+      } else {
+        window.location.href = "login.html";
+      }
+    }
+  </script>
+
+</body>
+</html>
