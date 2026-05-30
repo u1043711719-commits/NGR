@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Website</title>
-</head>
-<body>
-    <h1>Welcome to My Website</h1>
-    <p>This website is hosted on GitHub Pages.</p>
-</body>
-</html>
-https://youtu.be/yWudGGiJOSI?is=i2Ev1TkkX-nIhxvJ
-<!DOCTYPE html>
-<html>
-<head>
-  <title>NGR Academy</title>
+    <title>NGR Academy</title>
 </head>
 <body>
 
+<h1>Welcome to NGR Academy</h1>
+<p>Start your learning journey</p>
+
+<button onclick="go()">Enter Site</button>
+
 <script>
+function go(){
   const user = localStorage.getItem('user');
 
   if (user) {
@@ -24,6 +19,7 @@ https://youtu.be/yWudGGiJOSI?is=i2Ev1TkkX-nIhxvJ
   } else {
     window.location.href = "login.html";
   }
+}
 </script>
 
 </body>
