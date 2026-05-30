@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NGR Login</title>
+
+  <style>
+    body{
+      font-family:Arial;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      background:#0b0f14;
+      color:white;
+    }
+
+    .box{
+      background:#111;
+      padding:20px;
+      width:300px;
+      border-radius:10px;
+      border:1px solid #00ff99;
+    }
+
+    input{
+      width:100%;
+      padding:10px;
+      margin:10px 0;
+      border:none;
+      border-radius:5px;
+    }
+
+    button{
+      width:100%;
+      padding:10px;
+      margin:5px 0;
+      border:none;
+      cursor:pointer;
+    }
+
+    .login{
+      background:#00ff99;
+      color:black;
+    }
+
+    .register{
+      background:#333;
+      color:white;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>Login to NGR Academy</h2>
+
+  <input type="text" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+
+  <button class="login" onclick="login()">Login</button>
